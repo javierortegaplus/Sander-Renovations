@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sander Renovations | Home Remodeling in Orlando, FL</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Las originales elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#2d2d2d',     // Gris corporativo
+                            light: '#e6e7e8',    // Gris/blanco corporativo
+                            accent: '#f8d300',   // Amarillo corporativo
+                            accentHover: '#e5c300', // Amarillo ligeramente más oscuro
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos adicionales personalizados */
+        .hero-bg {
+            background-image: linear-gradient(rgba(45, 45, 45, 0.7), rgba(45, 45, 45, 0.7)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark bg-white antialiased relative">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo horizontal integrado -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img src="https://res.cloudinary.com/dperzjcpi/image/upload/v1773790978/icono_logo_texto_horizontal_banner_gris_2d2d2d_sr_y7jvq2.png" alt="Sander Renovations Logo" class="h-10 md:h-12 object-contain">
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" data-i18n="nav_home" class="text-gray-600 hover:text-brand-dark transition font-medium">Home</a>
+                    <a href="#nosotros" data-i18n="nav_about" class="text-gray-600 hover:text-brand-dark transition font-medium">About Us</a>
+                    <a href="#servicios" data-i18n="nav_services" class="text-gray-600 hover:text-brand-dark transition font-medium">Services</a>
+                    <a href="#proyectos" data-i18n="nav_projects" class="text-gray-600 hover:text-brand-dark transition font-medium">Projects</a>
+                    <a href="#contacto" data-i18n="nav_quote" class="bg-brand-accent hover:bg-brand-accentHover text-brand-dark px-6 py-2.5 rounded-md font-bold transition shadow-md">
+                        Get a Quote
+                    </a>
+                </div>
+
+                <!-- Botones Derecha (Idioma + Menú Móvil) -->
+                <div class="flex items-center space-x-5">
+                    <!-- Selector de Idioma -->
+                    <button id="lang-toggle" class="flex items-center gap-2 text-gray-600 hover:text-brand-dark transition font-bold text-sm bg-gray-100 px-3 py-1.5 rounded-full border border-gray-200">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang-text">EN</span>
+                    </button>
+
+                    <!-- Botón Menú Móvil -->
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-dark focus:outline-none text-2xl">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil (Oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#inicio" data-i18n="nav_home" class="block px-3 py-2 text-gray-800 font-medium hover:bg-gray-50 rounded-md">Home</a>
+                <a href="#nosotros" data-i18n="nav_about" class="block px-3 py-2 text-gray-800 font-medium hover:bg-gray-50 rounded-md">About Us</a>
+                <a href="#servicios" data-i18n="nav_services" class="block px-3 py-2 text-gray-800 font-medium hover:bg-gray-50 rounded-md">Services</a>
+                <a href="#proyectos" data-i18n="nav_projects" class="block px-3 py-2 text-gray-800 font-medium hover:bg-gray-50 rounded-md">Projects</a>
+                <a href="#contacto" data-i18n="nav_quote" class="block px-3 py-2 mt-4 text-center bg-brand-accent text-brand-dark font-bold rounded-md">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero-bg h-screen flex items-center justify-center pt-20">
+        <div class="text-center px-4 max-w-4xl mx-auto">
+            <span data-i18n="hero_subtitle" class="text-brand-accent font-bold tracking-wider uppercase text-sm md:text-base mb-4 block">Details that transform your home</span>
+            <h1 data-i18n="hero_title" class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight mb-6">
+                Transform your space with <br/><span class="text-brand-accent">Sander Renovations</span>
+            </h1>
+            <p data-i18n="hero_desc" class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                Specialists in home and office remodeling in Orlando, FL. We improve the functionality, aesthetics, and comfort of every corner.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contacto" data-i18n="hero_btn_primary" class="bg-brand-accent hover:bg-brand-accentHover text-brand-dark px-8 py-4 rounded-md font-bold text-lg transition shadow-xl">
+                    Free Consultation
+                </a>
+                <a href="#proyectos" data-i18n="hero_btn_secondary" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-md font-bold text-lg transition">
+                    View Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos (Beneficios) -->
+    <section class="py-16 bg-white relative -mt-10 mx-4 md:mx-auto max-w-6xl rounded-xl shadow-xl z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8">
+            <div class="text-center">
+                <div class="w-16 h-16 mx-auto bg-brand-accent/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4">
+                    <i class="fas fa-wallet text-brand-dark"></i>
+                </div>
+                <h3 data-i18n="feat1_title" class="font-bold text-lg mb-2 text-brand-dark">Financing</h3>
+                <p data-i18n="feat1_desc" class="text-gray-500 text-sm">Customized plans to make your project a reality.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-16 h-16 mx-auto bg-brand-accent/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4">
+                    <i class="fas fa-home text-brand-dark"></i>
+                </div>
+                <h3 data-i18n="feat2_title" class="font-bold text-lg mb-2 text-brand-dark">In-Home Consultation</h3>
+                <p data-i18n="feat2_desc" class="text-gray-500 text-sm">We visit you at no cost to evaluate your space and needs.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-16 h-16 mx-auto bg-brand-accent/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4">
+                    <i class="fas fa-medal text-brand-dark"></i>
+                </div>
+                <h3 data-i18n="feat3_title" class="font-bold text-lg mb-2 text-brand-dark">Experience</h3>
+                <p data-i18n="feat3_desc" class="text-gray-500 text-sm">Years of recognition creating incredible spaces.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-16 h-16 mx-auto bg-brand-accent/10 rounded-full flex items-center justify-center text-brand-dark text-2xl mb-4">
+                    <i class="fas fa-hard-hat text-brand-dark"></i>
+                </div>
+                <h3 data-i18n="feat4_title" class="font-bold text-lg mb-2 text-brand-dark">Certified</h3>
+                <p data-i18n="feat4_desc" class="text-gray-500 text-sm">Insured and highly trained professionals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="py-20 bg-brand-light/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dperzjcpi/image/upload/v1773791521/IMG-20251127-WA0005_fkxj6a.jpg" alt="Proyecto de Sander Renovations" class="rounded-lg shadow-2xl w-full object-cover">
+                        <div class="absolute -bottom-6 -right-6 bg-brand-dark text-white p-6 rounded-lg shadow-xl hidden md:block">
+                            <p class="text-3xl font-bold text-brand-accent mb-1">+7</p>
+                            <p data-i18n="about_exp" class="text-sm font-medium">Years of <br>Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 data-i18n="about_tag" class="text-brand-dark font-bold tracking-wider uppercase text-sm mb-2 opacity-70">About Us</h2>
+                    <h3 data-i18n="about_title" class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">Customized solutions that adapt to your lifestyle.</h3>
+                    <p data-i18n="about_p1" class="text-gray-600 mb-6 leading-relaxed">
+                        Sander Renovations is a company dedicated to home and office remodeling, specializing in transforming spaces to improve functionality, aesthetics, and comfort.
+                    </p>
+                    <p data-i18n="about_p2" class="text-gray-600 mb-8 leading-relaxed">
+                        Our focus is to provide tailor-made solutions. From changing tiles to comprehensive renovations, we take care of every decorative and functional detail to achieve the "before and after" you always dreamed of.
+                    </p>
+                    <a href="#contacto" data-i18n="about_link" class="inline-flex items-center text-brand-dark font-bold hover:text-brand-accent transition">
+                        Learn more about us <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <h2 data-i18n="serv_tag" class="text-brand-dark font-bold tracking-wider uppercase text-sm mb-2 opacity-70">Our Specialty</h2>
+            <h3 data-i18n="serv_title" class="text-3xl md:text-4xl font-serif font-bold text-brand-dark">Remodeling Services</h3>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Servicio 1 -->
+            <div class="service-card group cursor-pointer bg-white border border-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                <div class="overflow-hidden h-64">
+                    <img src="https://res.cloudinary.com/dperzjcpi/image/upload/v1773793119/cocina_2_square_1e9678.jpg" alt="Kitchens" class="service-img w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <div class="p-8 text-center relative">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-brand-dark w-16 h-16 rounded-full flex items-center justify-center shadow-lg text-brand-accent text-2xl">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4 data-i18n="serv1_title" class="text-xl font-bold text-brand-dark mt-4 mb-3">Kitchens</h4>
+                    <p data-i18n="serv1_desc" class="text-gray-600 text-sm mb-4">We design and build modern, functional, and cozy kitchens. The heart of your home deserves the best.</p>
+                </div>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="service-card group cursor-pointer bg-white border border-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                <div class="overflow-hidden h-64">
+                    <img src="https://res.cloudinary.com/dperzjcpi/image/upload/ar_1:1,c_auto/WhatsApp_Image_2026-01-02_at_20.27.17_1_u7adz4.jpg" alt="Bathrooms" class="service-img w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <div class="p-8 text-center relative">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-brand-dark w-16 h-16 rounded-full flex items-center justify-center shadow-lg text-brand-accent text-2xl">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h4 data-i18n="serv2_title" class="text-xl font-bold text-brand-dark mt-4 mb-3">Bathrooms</h4>
+                    <p data-i18n="serv2_desc" class="text-gray-600 text-sm mb-4">We transform your bathroom into a personal spa. Tile replacement, plumbing fixtures, and top-quality finishes.</p>
+                </div>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="service-card group cursor-pointer bg-white border border-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                <div class="overflow-hidden h-64">
+                    <img src="https://res.cloudinary.com/dperzjcpi/image/upload/v1773794216/escalera_1_0f6e72.jpg" alt="Interiors" class="service-img w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <div class="p-8 text-center relative">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-brand-dark w-16 h-16 rounded-full flex items-center justify-center shadow-lg text-brand-accent text-2xl">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h4 data-i18n="serv3_title" class="text-xl font-bold text-brand-dark mt-4 mb-3">Interiors</h4>
+                    <p data-i18n="serv3_desc" class="text-gray-600 text-sm mb-4">Comprehensive living room renovation, baseboard installation, painting, and decorative details that make a difference.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#contacto" data-i18n="serv_btn" class="inline-block border-2 border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white px-8 py-3 rounded-md font-bold transition">
+                View all services
+            </a>
+        </div>
+    </section>
+
+    <!-- Galería Instagram / Impacto Visual -->
+    <section id="proyectos" class="py-20 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+            <h2 data-i18n="proj_tag" class="text-brand-accent font-bold tracking-wider uppercase text-sm mb-2">Stunning Transformations</h2>
+            <h3 data-i18n="proj_title" class="text-3xl md:text-4xl font-serif font-bold mb-4">Before & After</h3>
+            <p data-i18n="proj_desc" class="text-gray-400 max-w-2xl mx-auto mb-8">Follow us on social media to see the real impact of our work on Florida homes. Get inspired for your next project!</p>
+            
+            <!-- CONTENEDOR PARA WIDGET DINÁMICO DE INSTAGRAM -->
+            <div id="instagram-widget-container" class="w-full">
+                <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-4423baf2-fa16-4cf7-8569-a39139eadfcb" data-elfsight-app-lazy></div>
+            </div>
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="https://www.instagram.com/sanderrenovations/" target="_blank" class="inline-flex items-center text-brand-accent hover:text-white transition font-semibold text-lg">
+                <i class="fab fa-instagram mr-2"></i> @sanderrenovations
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="py-20 bg-brand-light/30 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                
+                <!-- Info de Contacto -->
+                <div class="lg:w-2/5 bg-brand-dark text-white p-10 md:p-12 flex flex-col justify-between">
+                    <div>
+                        <h3 data-i18n="cont_title" class="text-3xl font-serif font-bold mb-4">Tell us about your project</h3>
+                        <p data-i18n="cont_desc" class="text-gray-300 mb-8">Message us or call us to schedule a free in-home consultation. We are ready to start.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-brand-accent mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <h4 data-i18n="cont_areas" class="font-bold">Service Areas</h4>
+                                    <p data-i18n="cont_areas_desc" class="text-gray-300 text-sm">State of Florida (Orlando and surroundings)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-brand-accent mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <h4 data-i18n="cont_email" class="font-bold">Email</h4>
+                                    <p class="text-gray-300 text-sm">sanderrenova@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-brand-accent mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <h4 data-i18n="cont_phone" class="font-bold">Phone</h4>
+                                    <p class="text-gray-300 text-sm">+1 (407) 591-7311</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 flex space-x-4">
+                        <a href="https://www.instagram.com/sanderrenovations/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Llamado a la acción de WhatsApp -->
+                <div class="lg:w-3/5 p-10 md:p-16 flex flex-col items-center justify-center text-center">
+                    <div class="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
+                        <i class="fab fa-whatsapp text-6xl text-[#25D366]"></i>
+                    </div>
+                    <h4 data-i18n="wa_title" class="text-3xl font-serif font-bold text-brand-dark mb-4">Let's talk about your project!</h4>
+                    <p data-i18n="wa_desc" class="text-gray-600 mb-8 max-w-md text-lg">
+                        Ready to take the first step towards the renovation of your dreams? Message us directly on WhatsApp. Tell us what space you'd like to transform and let's schedule your <strong>free consultation</strong> today.
+                    </p>
+                    <a id="wa-link" href="#" target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-green-500/30 flex items-center justify-center gap-3 text-lg hover:-translate-y-1">
+                        <i class="fab fa-whatsapp text-2xl"></i> <span data-i18n="wa_btn">Send message via WhatsApp</span>
+                    </a>
+                    <p data-i18n="wa_footer" class="mt-6 text-sm text-gray-400">
+                        Direct and personalized attention. ✨🏡🔨
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-800 text-gray-400 py-10 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <!-- Logo pie de página -->
+            <img src="https://res.cloudinary.com/dperzjcpi/image/upload/v1773785855/sander_renovation_FINAL_f8d300_rs03g6.png" alt="Sander Renovations Logo" class="h-14 mb-4 object-contain">
+            <p class="mb-2">&copy; <script>document.write(new Date().getFullYear())</script> Sander Renovations. <span data-i18n="footer_rights">All rights reserved.</span></p>
+            <p><a href="#" data-i18n="footer_privacy" class="hover:text-brand-accent transition">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Lógica del menú móvil
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // ==========================================
+        // SISTEMA DE INTERNACIONALIZACIÓN (I18N)
+        // ==========================================
+        const translations = {
+            "en": {
+                "nav_home": "Home",
+                "nav_about": "About Us",
+                "nav_services": "Services",
+                "nav_projects": "Projects",
+                "nav_quote": "Get a Quote",
+                "hero_subtitle": "Details that transform your home",
+                "hero_title": "Transform your space with <br/><span class='text-brand-accent'>Sander Renovations</span>",
+                "hero_desc": "Specialists in home and office remodeling in Orlando, FL. We improve the functionality, aesthetics, and comfort of every corner.",
+                "hero_btn_primary": "Free Consultation",
+                "hero_btn_secondary": "View Projects",
+                "feat1_title": "Financing",
+                "feat1_desc": "Customized plans to make your project a reality.",
+                "feat2_title": "In-Home Consultation",
+                "feat2_desc": "We visit you at no cost to evaluate your space and needs.",
+                "feat3_title": "Experience",
+                "feat3_desc": "Years of recognition creating incredible spaces.",
+                "feat4_title": "Certified",
+                "feat4_desc": "Insured and highly trained professionals.",
+                "about_exp": "Years of <br>Experience",
+                "about_tag": "About Us",
+                "about_title": "Customized solutions that adapt to your lifestyle.",
+                "about_p1": "Sander Renovations is a company dedicated to home and office remodeling, specializing in transforming spaces to improve functionality, aesthetics, and comfort.",
+                "about_p2": "Our focus is to provide tailor-made solutions. From changing tiles to comprehensive renovations, we take care of every decorative and functional detail to achieve the \"before and after\" you always dreamed of.",
+                "about_link": "Learn more about us <i class='fas fa-arrow-right ml-2'></i>",
+                "serv_tag": "Our Specialty",
+                "serv_title": "Remodeling Services",
+                "serv1_title": "Kitchens",
+                "serv1_desc": "We design and build modern, functional, and cozy kitchens. The heart of your home deserves the best.",
+                "serv2_title": "Bathrooms",
+                "serv2_desc": "We transform your bathroom into a personal spa. Tile replacement, plumbing fixtures, and top-quality finishes.",
+                "serv3_title": "Interiors",
+                "serv3_desc": "Comprehensive living room renovation, baseboard installation, painting, and decorative details that make a difference.",
+                "serv_btn": "View all services",
+                "proj_tag": "Stunning Transformations",
+                "proj_title": "Before & After",
+                "proj_desc": "Follow us on social media to see the real impact of our work on Florida homes. Get inspired for your next project!",
+                "cont_title": "Tell us about your project",
+                "cont_desc": "Message us or call us to schedule a free in-home consultation. We are ready to start.",
+                "cont_areas": "Service Areas",
+                "cont_areas_desc": "State of Florida (Orlando and surroundings)",
+                "cont_email": "Email",
+                "cont_phone": "Phone",
+                "wa_title": "Let's talk about your project!",
+                "wa_desc": "Ready to take the first step towards the renovation of your dreams? Message us directly on WhatsApp. Tell us what space you'd like to transform and let's schedule your <strong>free consultation</strong> today.",
+                "wa_btn": "Send message via WhatsApp",
+                "wa_footer": "Direct and personalized attention. ✨🏡🔨",
+                "footer_rights": "All rights reserved.",
+                "footer_privacy": "Privacy Policy",
+                "wa_msg_prefill": "Hello Sander Renovations ✨ I would like to get a quote for a remodeling project."
+            },
+            "es": {
+                "nav_home": "Inicio",
+                "nav_about": "Nosotros",
+                "nav_services": "Servicios",
+                "nav_projects": "Proyectos",
+                "nav_quote": "Cotizar Ahora",
+                "hero_subtitle": "Detalles que transforman tu hogar",
+                "hero_title": "Transforma tu espacio con <br/><span class='text-brand-accent'>Sander Renovations</span>",
+                "hero_desc": "Especialistas en remodelación de hogares y oficinas en Orlando, FL. Mejoramos la funcionalidad, estética y confort de cada rincón.",
+                "hero_btn_primary": "Consulta Gratuita",
+                "hero_btn_secondary": "Ver Proyectos",
+                "feat1_title": "Financiación",
+                "feat1_desc": "Planes a tu medida para que tu proyecto sea una realidad.",
+                "feat2_title": "Consulta a Domicilio",
+                "feat2_desc": "Te visitamos sin costo para evaluar tu espacio y necesidades.",
+                "feat3_title": "Experiencia",
+                "feat3_desc": "Años de reconocimiento creando espacios increíbles.",
+                "feat4_title": "Certificados",
+                "feat4_desc": "Profesionales asegurados y altamente capacitados.",
+                "about_exp": "Años de <br>Experiencia",
+                "about_tag": "Sobre Nosotros",
+                "about_title": "Soluciones personalizadas que se adaptan a tu estilo de vida.",
+                "about_p1": "Sander Renovations es una empresa dedicada a la remodelación de hogares y oficinas, especializados en transformar espacios para mejorar su funcionalidad, estética y confort.",
+                "about_p2": "Nuestro enfoque es brindar soluciones hechas a medida. Desde el cambio de azulejos hasta renovaciones integrales, cuidamos cada detalle decorativo y funcional para lograr el \"antes y después\" que siempre soñaste.",
+                "about_link": "Saber más sobre nosotros <i class='fas fa-arrow-right ml-2'></i>",
+                "serv_tag": "Nuestra Especialidad",
+                "serv_title": "Servicios de Remodelación",
+                "serv1_title": "Cocinas",
+                "serv1_desc": "Diseñamos y construimos cocinas modernas, funcionales y acogedoras. El corazón de tu hogar merece lo mejor.",
+                "serv2_title": "Baños",
+                "serv2_desc": "Transformamos tu baño en un spa personal. Cambio de azulejos, grifería y acabados de primera calidad.",
+                "serv3_title": "Interiores",
+                "serv3_desc": "Renovación integral de salas, colocación de rodapiés, pintura y detalles decorativos que marcan la diferencia.",
+                "serv_btn": "Ver todos los servicios",
+                "proj_tag": "Impresionantes Transformaciones",
+                "proj_title": "El Antes y Después",
+                "proj_desc": "Síguenos en nuestras redes sociales para ver el impacto real de nuestro trabajo en los hogares de Florida. ¡Inspírate para tu próximo proyecto!",
+                "cont_title": "Cuéntanos sobre tu proyecto",
+                "cont_desc": "Escríbenos o llámanos para programar una consulta gratuita en tu domicilio. Estamos listos para empezar.",
+                "cont_areas": "Áreas de Servicio",
+                "cont_areas_desc": "Estado de Florida (Orlando y alrededores)",
+                "cont_email": "Email",
+                "cont_phone": "Teléfono",
+                "wa_title": "¡Hablemos de tu proyecto!",
+                "wa_desc": "¿Listo para dar el primer paso hacia la renovación de tus sueños? Escríbenos directamente por WhatsApp. Cuéntanos qué espacio te gustaría transformar y agendemos tu <strong>consulta gratuita</strong> hoy mismo.",
+                "wa_btn": "Enviar mensaje por WhatsApp",
+                "wa_footer": "Atención directa y personalizada. ✨🏡🔨",
+                "footer_rights": "Todos los derechos reservados.",
+                "footer_privacy": "Política de privacidad",
+                "wa_msg_prefill": "Hola Sander Renovations ✨ Me gustaría cotizar un proyecto de remodelación."
+            }
+        };
+
+        let currentLang = 'en'; // Idioma por defecto
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang; // Actualiza la etiqueta <html lang="">
+
+            // Actualiza el texto del botón
+            document.getElementById('current-lang-text').innerText = lang.toUpperCase();
+
+            // Traduce todos los elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Actualiza el link dinámico de WhatsApp con el mensaje traducido
+            const waLink = document.getElementById('wa-link');
+            if(waLink) {
+                const message = translations[lang]["wa_msg_prefill"];
+                waLink.href = `https://wa.me/14075917311?text=${encodeURIComponent(message)}`;
+            }
+        }
+
+        // Evento del botón para cambiar el idioma
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            const newLang = currentLang === 'en' ? 'es' : 'en';
+            setLanguage(newLang);
+        });
+
+        // Inicia la página en el idioma predeterminado (Inglés)
+        setLanguage(currentLang);
+
+    </script>
+</body>
+</html>
